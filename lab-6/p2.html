@@ -1,0 +1,30 @@
+
+<!--character count of a message using javascript-->
+<html>
+    <head>
+        <title>character count</title>
+    </head>
+    <body>
+        <h1>character count</h1>
+        <textarea id="message" rows="4" cols="50"></textarea>
+        <div id="count">remaining characters: 100</div>
+        <script>
+            const maxLength = 100;
+            const messageInput = document.getElementById('message');
+            const countDisplay = document.getElementById('count');
+
+            function updateCount(){
+                const remaining = maxLength - messageInput.value.length;
+                countDisplay.textContent = `remaining characters: ${remaining}`;
+                if(remaining <= 10){
+                    countDisplay.style.color = 'red';
+                }
+                else{
+                    countDisplay.style.color = 'black';
+                }
+            }
+            messageInput.addEventListener('input', updateCount);
+            updateCount();
+        </script>
+    </body>
+</html>

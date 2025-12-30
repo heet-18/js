@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let menu = [
+            {name:"pizza", price:120},
+            {name:"burger", price:100},
+            {name:"french fries", price:60},
+            {name:"ice cream", price:80},
+            {name:"pasta", price:150},
+        ];
+        let selected = prompt("Enter the food you want to order (pizza, burger, french fries, ice cream, pasta):").split(",");
+        let orders = menu.filter(item => selected.includes(item.name));
+        let totalBill = orders.reduce((acc,item) => acc + item.price,0);
+        document.write(`<h1>Total Bill: ${totalBill}</h1>`);
+    </script>
+</body>
+</html>

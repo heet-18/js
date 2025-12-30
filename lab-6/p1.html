@@ -1,0 +1,20 @@
+<!--display the current date and time with every second using javascript-->
+<html>
+    <head>
+        <title>current date and time</title>
+    </head>
+    <body>
+        <h1>current date and time</h1>
+        <p id="date"></p>
+        <p id="time"></p>
+        <script>
+            function showDateAndTime(){
+                const now = new Date();
+                document.getElementById('date').textContent = now.toLocaleDateString();
+                document.getElementById('time').textContent = now.toLocaleTimeString();
+            }
+            setInterval(showDateAndTime, 1000);
+            showDateAndTime();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="return validateRegister()">
+        UserName : <input type="text" id="Username"/>
+        <span id="userError" class="error" style="color:red"></span><br /><br />
+        Email : <input type="text" id="Email"/>
+        <span id="emailError" class="error" style="color:red"></span><br /><br />
+        Password : <input type="Password" id="Password"/>
+        <span id="passError" class="error" style="color:red"></span><br /><br />
+        
+        <input type="submit" value="Register"/>
+
+    </form>
+
+    <script>
+        function validateRegister(){
+        let valid = true;
+
+        document.getElementById("userError").innerHTML = "";
+        document.getElementById("emailError").innerHTML = "";
+        document.getElementById("passError").innerHTML = "";
+
+            let Username = document.getElementById("Username").value;
+            let Email = document.getElementById("Email").value;
+            let Password = document.getElementById("Password").value;
+
+            let EmailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (UserName == ""){
+                document.getElementById("userError").innerHTML = "Username is required";
+                valid = false;
+            }
+
+            if (!EmailPattern.test(Email)){
+                document.getElementById("emailError").innerHTML = "Invalid Email";
+                valid = false;
+            }
+
+            if (Password.length < 6){
+                document.getElementById("passError").innerHTML = "Password must be at least 6 characters";
+                valid = false;
+            }
+
+            alert("Registration Successful");
+            return valid;
+
+        }   
+    </script>
+</body>
+</html>

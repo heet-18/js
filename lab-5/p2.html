@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Login</title>
+</head>
+<body>
+    <form id="loginForm" onsubmit="return validateLogin()">
+        Email : <input type="text" id="Email"/><br />
+        Password : <input type="Password" id="Password"/><br />
+        <button type="submit">Login</button>
+
+    </form>
+
+    <script>
+        function validateLogin(){
+            let Email = document.getElementById("Email").value;
+            let Password = document.getElementById("Password").value;
+
+            let EmailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!EmailPattern.test(Email)){
+                alert("Invaild Email");
+                return false;
+            }
+
+            if (Password.length < 6){
+                alert("Invaild password");
+                return false;
+            }
+            alert("submite");
+            return true;
+            }
+    </script>
+</body>
+</html>

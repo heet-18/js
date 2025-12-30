@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="slider">
+        <img id="image" height="300px" width="300px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzfWQxL8z29gnIcpv70AOVU4EOZClgzWFv5YJ6HNRBCA&s" alt="">
+    </div>
+    <button onclick="previous()">Previous</button>
+    <button onclick="next()">Next</button>
+    <script>
+        let index = 0;
+        let images = [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzfWQxL8z29gnIcpv70AOVU4EOZClgzWFv5YJ6HNRBCA&s",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwfqrNeWjhZCJQ9uIENqBr7ol9Wi-rLk_RKbw7bBn3ng&s",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0KwSVZrY2bEp8ThmBO0rx9xFQJ6FJXc6ixitS0gZd&s"
+        ];
+        function next(){
+            index = (index+1)%images.length;
+            document.getElementById("image").src = images[index];
+        }
+        function previous(){
+            index = (index-1+images.length)%images.length;
+            document.getElementById("image").src = images[index];
+        }
+    </script>
+</body>
+</html>
