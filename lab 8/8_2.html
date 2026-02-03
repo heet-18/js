@@ -1,0 +1,26 @@
+<html>
+    <head></head>
+    <body>
+        <p id="result"></p>
+        <script>
+            const student = {
+                name: "steve",
+                age: "30",
+                course: "Minecraft",
+            };
+            document.writeln(student.name);
+            const {name , age} = student;
+            const marks = [80,85,90];
+            const[xyz,abc]=marks;
+            const newmarks=[...marks,95];
+            
+            console.log(newmarks);
+            console.log(xyz);
+            console.log("----------------");
+            console.log(abc);
+            document.getElementById("result").innerHTML = `name : $(name)<br>
+            age:${age}
+            marks:${newmarks}`;
+        </script>
+    </body>
+</html>
