@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #main {
+        visibility: hidden;
+    }
+
+    table,
+    th,
+    td {
+        border: px solid black;
+    }
+</style>
+
+<body>
+    <button onclick="btn('')">Get</button>
+    <div id="main">
+        <input type="text" id="s" onkeyup="search1()" placeholder="Search the name you want to search">
+
+        <table border="1" id="tbl">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>DOB</th>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        const url = "https://68b7e6eeb715405043265149.mockapi.io/student/userDetail"
+        function btn(e) {
+            fetch(url).then((res) => {
+                return res.text()
+            }).then((data) => {
+                const dt = JSON.parse(data)
+                document.getElementById("main").style.visibility = "visible"
+
+                for (i = 0; i < 20; i++) {
+
+                    document.getElementById("tbl").innerHTML += `
+                    <tr id="${i}">
+                        <td class="name">${dt[i].name}</td>
+                        <td>${dt[i].email}</td>
+                        <td>${dt[i].city}</td>
+                        <td>${dt[i].dob}</td>
+                    </tr>`
+                }
+            })
+        }
+        function search1() {
+            let searchText = document.getElementById("s").value.toLowerCase();
+            let names = document.getElementsByClassName("name");
+
+            for (let i = 0; i < names.length; i++) {
+                let nameText = names[i].textContent.toLowerCase();
+                let row = document.getElementById(i);
+                if
+                (
+                    nameText.includes(searchText)
+                ) 
+                {
+                    row.style.backgroundColor = "#90ee90";
+                } 
+                else
+                {
+                    row.style.backgroundColor = "";
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
